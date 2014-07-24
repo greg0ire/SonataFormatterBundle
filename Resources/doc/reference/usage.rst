@@ -3,7 +3,7 @@
     single: Example
 
 Usage
-=====
+====
 
 
 .. configuration-block::
@@ -27,7 +27,7 @@ Usage
 Form
 ----
 
-The bundle provide a widget to format a text when the form is bound. Just declare 2 fields:
+The bundle provides a widget to format a text when the form is bound. Just declare 2 fields:
 
 * `source content` field;
 * `formatter` field.
@@ -52,8 +52,8 @@ For instance, this can be used to pregenerate the content of a markdown blog pos
 Twig Formatter
 --------------
 
-`Twig formatter` uses the project's `Twig Environment` (registered within service container as ``twig``).
-All settings that affect the project's `Twig Environment` (like used template loader, enabled extensions etc.) will also affect the `Twig Formatter`.
+`Twig formatter` uses the project's `Twig Environment` (registered within service container as ``twig``)
+All settings that affect the project's `Twig Environment` (like used template loader, enabled extensions etc.) will also affect the `Twig Formatter`
 
 Also `Twig formatter` cannot have extensions enabled.
 
