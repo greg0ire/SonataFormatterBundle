@@ -114,11 +114,6 @@ final class SonataFormatterExtension extends Extension
     {
         $loader = new Definition('Twig_Loader_Array');
 
-        // NEXT_MAJOR: remove this if block
-        if (!class_exists('\Twig_Loader_Array')) {
-            $loader = new Definition('Twig_Loader_String');
-        }
-
         $loader->setPublic(false);
 
         $container->setDefinition(sprintf('sonata.formatter.twig.loader.%s', $code), $loader);

@@ -21,6 +21,7 @@ use Symfony\Bridge\Twig\Extension\FormExtension;
 use Symfony\Bridge\Twig\Form\TwigRenderer;
 use Symfony\Component\Form\FormRenderer;
 use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
@@ -30,16 +31,9 @@ final class CkeditorAdminController extends MediaAdminController
     /**
      * @throws AccessDeniedException
      */
-    public function browserAction(): Response
+    public function browserAction(Request $request): Response
     {
         $this->checkIfMediaBundleIsLoaded();
-
-        // NEXT_MAJOR: Remove this when dropping support for SF < 2.8 (change method signature)
-        if ($this->has('request_stack')) {
-            $request = $this->get('request_stack')->getCurrentRequest();
-        } else {
-            $request = $this->get('request');
-        }
 
         $this->admin->checkAccess('list');
 
@@ -100,16 +94,9 @@ final class CkeditorAdminController extends MediaAdminController
      * @throws AccessDeniedException
      * @throws NotFoundHttpException
      */
-    public function uploadAction(): Response
+    public function uploadAction(Request $request): Response
     {
         $this->checkIfMediaBundleIsLoaded();
-
-        // NEXT_MAJOR: Remove this when dropping support for SF < 2.8 (change method signature)
-        if ($this->has('request_stack')) {
-            $request = $this->get('request_stack')->getCurrentRequest();
-        } else {
-            $request = $this->get('request');
-        }
 
         $this->admin->checkAccess('create');
 
